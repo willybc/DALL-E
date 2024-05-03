@@ -1,0 +1,70 @@
+.result-container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.result-container .result-desc {
+	font-size: 20px;
+	font-weight: 700;
+	text-align: start;
+}
+
+.download-container {
+	width: 100%;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	gap: 1rem;
+}
+
+.with-edit-mode {
+	flex-direction: column;
+}
+
+.download-container .start-again-text {
+	font-size: 0.875rem;
+	line-height: 1.75;
+	letter-spacing: 1px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.start-again-button {
+	color: white !important;
+	font-size: 0.875rem !important;
+	cursor: pointer !important;
+}
+
+.button-download {
+	align-self: end;
+	background: #666666 !important;
+	/* background: #b3b3b3 !important; */
+	/* background: #E91E62 !important; */
+}
+
+.text-add {
+	font-family: Open Sans;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 28px;
+	letter-spacing: 0.18000000715255737px;
+	text-align: left;
+
+	color: #f57c00;
+}
+
+.text-danger {
+	color: #fe414d;
+}
+
+.buttons-container {
+	width: 100%;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	gap: 1rem;
+}
