@@ -32,8 +32,8 @@ export const ResultContainer = () => {
 	const [selectedImage, setSelectedImage] = useState("");
 
 	useEffect(() => {
-		setInitialText(textToGenerate);
 		selectRandomImage();
+		setInitialText(textToGenerate);
 	}, []);
 
 	const downloadImage = () => {};
@@ -57,10 +57,12 @@ export const ResultContainer = () => {
 			else {
 				// Contador para simulacion de limite excedido
 				setCounter((prevCounter) => prevCounter + 1);
-				if (counter >= 1) {
+				// Seteamos el limite
+				if (counter >= 4) {
 					setLimitExceeded(true);
 				}
 				setInitialText(textToGenerate);
+				selectRandomImage();
 				setImage(selectedImage)
 			}
 		}, 2000);
@@ -76,22 +78,22 @@ export const ResultContainer = () => {
 		navigate('/')
 	}
 
-	const listImages = [
-		"/src/assets/image1.webp",
-		"/src/assets/image2.webp",
-		"/src/assets/image3.webp",
-		"/src/assets/image4.webp",
-		"/src/assets/image5.webp",
-		"/src/assets/image6.webp",
-		"/src/assets/image7.webp",
-		"/src/assets/image8.webp",
-	]
+	const [listImages, setListImages] = useState([
+        "/src/assets/image1.webp",
+        "/src/assets/image2.webp",
+        "/src/assets/image3.webp",
+        "/src/assets/image4.webp",
+        "/src/assets/image5.webp",
+        "/src/assets/image6.webp",
+        "/src/assets/image7.webp",
+        "/src/assets/image8.webp",
+    ]);
 
 	const selectRandomImage = () => {
         const randomIndex = Math.floor(Math.random() * listImages.length);
         const randomImage = listImages[randomIndex];
         setSelectedImage(randomImage);
-        listImages.splice(randomIndex, 1);
+        setListImages(prevListImages => prevListImages.filter(image => image !== randomImage))
     }
 
 	return (
