@@ -10,15 +10,17 @@
 .header-container{
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     max-width: 1280px;
     width: 100%;
     height: 100%;
+
+    padding: 0 2rem;
 }
 
 .header-container h3 a {
-    color: #ffffff;
+    color: var(--primary-color);
     font-size: 1.5rem;
     font-weight: 600;
     text-decoration: none;

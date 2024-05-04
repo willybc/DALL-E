@@ -13,6 +13,12 @@ function App() {
 		<Router>
 			<Header />
 			<div className="main-container">
+				
+				<Box className="container-title">
+					<h2>Transforma tus pensamientos en realidad</h2>
+					<h3>con nuestra aplicación que utiliza el modelo DALL-E</h3>
+				</Box>
+
 				<Box className="container-box">
 					<Routes>
 						<Route path="/" element={<HomePage /> } />

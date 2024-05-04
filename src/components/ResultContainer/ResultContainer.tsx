@@ -29,8 +29,11 @@ export const ResultContainer = () => {
 
 	const [, setImage] = useAtom(imageAtom);
 
+	const [selectedImage, setSelectedImage] = useState("");
+
 	useEffect(() => {
 		setInitialText(textToGenerate);
+		selectRandomImage();
 	}, []);
 
 	const downloadImage = () => {};
@@ -58,7 +61,7 @@ export const ResultContainer = () => {
 					setLimitExceeded(true);
 				}
 				setInitialText(textToGenerate);
-				setImage("/src/assets/example2.png")
+				setImage(selectedImage)
 			}
 		}, 2000);
 	};
@@ -66,12 +69,30 @@ export const ResultContainer = () => {
 	const startAgain = () => {
 		setTextToGenerate("");
 		// setImage("");
-		setImage("/src/assets/example.png");
+		setImage(selectedImage);
 		setEditable(false);
 		// Seteamos el false el limite, para q se vuelva a usar el contador
 		setLimitExceeded(false);
 		navigate('/')
 	}
+
+	const listImages = [
+		"/src/assets/image1.webp",
+		"/src/assets/image2.webp",
+		"/src/assets/image3.webp",
+		"/src/assets/image4.webp",
+		"/src/assets/image5.webp",
+		"/src/assets/image6.webp",
+		"/src/assets/image7.webp",
+		"/src/assets/image8.webp",
+	]
+
+	const selectRandomImage = () => {
+        const randomIndex = Math.floor(Math.random() * listImages.length);
+        const randomImage = listImages[randomIndex];
+        setSelectedImage(randomImage);
+        listImages.splice(randomIndex, 1);
+    }
 
 	return (
 		<Box className="result-container">

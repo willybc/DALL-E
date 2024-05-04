@@ -6,7 +6,7 @@ export const ImageLoadingCard = () => {
     const theme = createTheme({
         palette: {
             secondary: {
-                main: "#FFCC80",
+                main: "#27E686",
             }
         }
     })

@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useAtom } from 'jotai';
 import { isEditableAtom } from "../../Providers/modeProvider";
 import { loadingAtom, errorAtom, noAptoAtom, limitExceededAtom } from "../../Providers/StateProvider";
-
 import { DialogError } from "../../components/DialogError/DialogError";
+import { imageAtom } from "../../Providers/ImageProvider";
 
 import "./HomePage.scss";
 
@@ -26,6 +26,8 @@ export function HomePage() {
 	const [noApto, setNoApto] = useAtom(noAptoAtom);
 	const [limitExceeded] = useAtom(limitExceededAtom);
 	
+	const [, setImage] = useAtom(imageAtom);
+
 	const createImage = () => {
 		setLoading(true);
 		setError(false);
@@ -46,10 +48,29 @@ export function HomePage() {
 				if (flujo == 1) {
 					setEditable(true)
 				}
+				selectRandomImage()
 				navigate("/show-image");
 			}
 		}, 2000);
 	};
+
+	const listImages = [
+		"/src/assets/image1.webp",
+		"/src/assets/image2.webp",
+		"/src/assets/image3.webp",
+		"/src/assets/image4.webp",
+		"/src/assets/image5.webp",
+		"/src/assets/image6.webp",
+		"/src/assets/image7.webp",
+		"/src/assets/image8.webp",
+	]
+
+	const selectRandomImage = () => {
+        const randomIndex = Math.floor(Math.random() * listImages.length);
+        const randomImage = listImages[randomIndex];
+        setImage(randomImage);
+        listImages.splice(randomIndex, 1);
+    }
 
 	return (
 		<>

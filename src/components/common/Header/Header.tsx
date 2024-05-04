@@ -12,7 +12,7 @@ export function Header() {
         <header className="header-main">
             <section className="header-container">
                 <h3 >
-                    <a onClick={handleRedirect}>APP-DALL-E</a>
+                    <a onClick={handleRedirect}>DALL-E</a>
                 </h3>
             </section>
         </header>

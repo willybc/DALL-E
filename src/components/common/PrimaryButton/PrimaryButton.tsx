@@ -5,7 +5,7 @@ import "./PrimaryButton.scss";
 const theme = createTheme({
 	palette: {
 		primary: {
-			main: "#E91E62",
+			main: "#27E686",
 		},
 	},
 });
